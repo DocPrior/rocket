@@ -44,4 +44,35 @@ class RocketTest < Minitest::Test
     name = rocket.name=(1)
     assert_equal(name, 1)
   end
+
+  def test_colour
+    rocket = Rocket.new(colour: "Red")
+    colour = rocket.colour
+    assert_equal(colour, "Red")
+  end
+
+  def test_colour_new
+    rocket = Rocket.new
+    colour = rocket.colour=("Red")
+    assert_equal(colour, "Red")
+  end
+
+  def test_colour_new_integer
+    rocket = Rocket.new
+    colour = rocket.colour=(1)
+    assert_equal(colour, 1)
+  end
+
+  def test_flying
+    rocket = Rocket.new
+    flying = rocket.flying?
+    assert_equal(flying, false)
+  end
+
+  def test_flying_true
+    rocket = Rocket.new(flying: true)
+    flying = rocket.flying?
+    assert_equal(flying, true)
+  end
+
 end
