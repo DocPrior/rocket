@@ -99,4 +99,22 @@ class RocketTest < Minitest::Test
     assert_equal(landing, false)
   end
 
+  def test_status_flying
+    rocket = Rocket.new(name: "Bob", flying: true)
+    rocket_status = rocket.status
+    assert_equal(rocket_status, "Rocket Bob is flying through the sky!")
+  end
+
+  def test_status_not_flying
+    rocket = Rocket.new(name: "Bob")
+    rocket_status = rocket.status
+    assert_equal(rocket_status, "Rocket Bob is ready for lift off!")
+  end
+
+  def test_status_flying_integer
+    rocket = Rocket.new(name: 1)
+    rocket_status = rocket.status
+    assert_equal(rocket_status, "Rocket 1 is ready for lift off!")
+  end
+
 end
