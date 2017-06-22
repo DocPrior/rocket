@@ -87,4 +87,16 @@ class RocketTest < Minitest::Test
     assert_equal(lifting_off, true)
   end
 
+  def test_land_true
+    rocket = Rocket.new(flying: true)
+    landing = rocket.land
+    assert_equal(landing, true)
+  end
+
+  def test_land_false
+    rocket = Rocket.new
+    landing = rocket.land
+    assert_equal(landing, false)
+  end
+
 end
